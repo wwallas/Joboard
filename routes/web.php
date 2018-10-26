@@ -12,5 +12,33 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+    //return view('autocomplete');
+
 });
+
+//Create user account in Joboard
+Route::get('auth/register', 'auth\RegisterController@create');
+
+Route::post('auth/register', 'auth\RegisterController@store');
+
+//user loggin into Joboard
+Route::get('auth/login', 'auth\LoginController@create');
+
+Route::post('auth/login', 'auth\LoginController@store');
+
+Route::get('auth/logout', 'auth\LoginController@destroy');
+
+
+Route::get('profile/profileupdate','ProfileController@create');
+
+
+Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
+// Route::get('/followers/{user}/follow','FollowerController@create');
+
+//     return view('welcome');
+// });
+
+// Auth::routes();
+//
+// Route::get('/home', 'HomeController@index')->name('home');

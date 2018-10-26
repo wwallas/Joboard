@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\User;
+use App\Profile;
 
 class RegisterController extends Controller
 {
@@ -20,53 +23,49 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    public function create(){
+        // show the registration form
+        return view('auth.register.create');
 
-    use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+    public function store(Request $request){
+
+        // validate the form
+        $data = $request->validate([
+            'name'      =>      'required|min:2|max:20',
+            'email'     =>      'required|email|max:40',
+            'password'  =>      'required|min:6|max:20|confirmed'
         ]);
+        //Encript the password
+        $data['password'] = bcrypt($data['password']);
+
+        // store new user row
+        //dd($data);
+
+        $user = User::create($data);
+        //dd($user);
+
+        $profileId = Profile::where('user_id', '=', $user->id)->count();
+        // dd($profileId);
+
+        if($profileId == 0){
+            $data['user_id']= $user->id;
+            $data['location']= 'Calgary';
+
+
+
+            //dd($data);
+            //set the $post variable, so the ID of our new row is accesible there
+            $profile = Profile::create($data);
+            // dd($profile);
+        }
+        auth()->login($user);
+        //redirect to the home page
+        session()->flash('message', 'You have successfully registered an account');
+        //return redirect()->home;
+
+        return redirect('/auth/login');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
 }
