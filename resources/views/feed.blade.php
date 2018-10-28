@@ -62,7 +62,7 @@
     margin-bottom: 0;
 }
 p {
-    font-size: 14px;
+    font-size: 8px;
     font-weight: 400;
     line-height: 26px;
     color: #666;
@@ -79,19 +79,24 @@ p {
  
 	<div class="row">
     @foreach($jobs as $job)
+    <a href="{{ $job ->url }}">
 		<div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
 						<div class="our-services-wrapper mb-60">
 							<div class="services-inner">
-								<div class="our-services-img">{{ $job ->title }}
-								<img src="https://www.orioninfosolutions.com/assets/img/icon/Agricultural-activities.png" width="68px" alt="">
+								<div class="our-services-img">
+                             
 								</div>
 								<div class="our-services-text">
-									<h4>business growth</h4>
-									<p>Proin varius pellentesque nuncia tincidunt ante. In id lacus</p>
+                                    <h3>{{ $job ->company }}
+                                    <p>{{ $job ->locations }}</p>
+									<h4>{{ $job ->title }}</h4></a>
+                                    <p>{{ $job ->description }}</p>
+                                    <p>{{ $job ->salary }}</p>
 								</div>
 							</div>
 						</div>
                     </div>
+                    </a>
                     @endforeach
 				
 					

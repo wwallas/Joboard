@@ -16,7 +16,7 @@ class apiController extends Controller
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
-                                         'keywords' => 'junior developer',
+                                         'keywords' => 'developer',
                                          'location' => 'Calgary',
                                          'affid'    => 'd9c8f942114d73022683107e1fd8d6c4',
                                        )
@@ -43,7 +43,7 @@ class apiController extends Controller
                                 //         // echo "\n" ;
                                 //      }
 
-    return view('welcome',compact('jobs'));
+    return view('feed',compact('jobs'));
       }
       
   }

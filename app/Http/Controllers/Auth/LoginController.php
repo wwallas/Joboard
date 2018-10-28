@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -18,22 +19,41 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+    public function __construct(){
+        $this->middleware('guest')->except('destroy');
+    }
+
+    public function create(){
+        // show login form
+        return view('auth.login.create');
+    }
+
+    public function store(Request $request){
+
+        if(! auth()->attempt(request(['email','password']))){
+            session()->flash('errorMessage', 'Invalid credentials');
+            return back()->withErrors([
+                'message'=>'please check your credentials and try again'
+            ]);
+            // return redirect()->back();
+            //return redirect('/auth/register');
+        }
+
+        //session()->flash('message', 'You have successfully logged in');
+        return redirect('/dashboard');
+        //return redirect('/members-only');
+    }
+
+    public function destroy(){
+        auth()->logout();
+
+        // return redirect('/auth/login');
+        return redirect('/');
     }
 }

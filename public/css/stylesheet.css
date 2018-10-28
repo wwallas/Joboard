@@ -1,0 +1,30 @@
+.topnav-right {
+  float: right;
+}
+
+.dot {
+    height: 210px;
+    width: 270px;
+    background-color: #24d2d7;
+    border-radius: 10%;
+    display: inline-block;
+}
+
+.align-Right {
+    text-align:Right;
+}
+
+.align-center {
+    text-align:center;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+.show > .dropdown-menu {
+    display: block;
+}
+ /* .dropdown-menu {
+    display: block;
+} */
