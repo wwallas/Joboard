@@ -29,6 +29,7 @@ class apiController extends Controller
                                     echo "Got ".$result->hits." jobs: \n";
                                     echo " On ".$result->pages." pages \n";
                                     $jobs = $result->jobs;
+                                   
                                 }
                               
                                 //     foreach ($jobs as $job) {

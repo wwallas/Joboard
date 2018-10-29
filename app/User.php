@@ -36,4 +36,8 @@ class User extends Authenticatable
     public function profileWebteche(){
         return $this->belongsToMany(ProfileWebteche::class);
     }
+
+    public function addToFavorites(){
+        return $this->belongsToMany(Favorites::class);
+    }
 }
