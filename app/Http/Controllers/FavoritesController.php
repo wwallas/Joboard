@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use apiController;
+use \App\Http\Controllers\apiController;
 use DB;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
+use App\Favorites;
 
 
 class FavoritesController extends Controller
@@ -14,9 +15,12 @@ class FavoritesController extends Controller
     public function store(Request $request)
     {
         $data['user_id'] = auth()->id();
-        $data['title'] = json_encode($job['title']);
-        $data['company'] = json_encode($job['company']);
-        $data['url'] = json_encode($job['url']);
+        $data['title'] = request('title');
+        $data['company'] = request('company');
+        $data['url'] = request('url');
 
+        $faves=Favorites::create($data);
+
+        return redirect('feed');
     }
 }

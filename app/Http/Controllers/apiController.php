@@ -16,7 +16,7 @@ class apiController extends Controller
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
-                                         'keywords' => 'developer',
+                                         'keywords' => 'junior','it',
                                          'location' => 'Calgary',
                                          'affid'    => 'd9c8f942114d73022683107e1fd8d6c4',
                                        )

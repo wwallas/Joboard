@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use FavoritesController;
+use \App\Http\Controllers\FavoritesController;
 
 class FavoritesModel extends Model
 {
+    protected $fillable =['user_id', ];
     protected $casts =[
                 'jobs'=>'array',
 
