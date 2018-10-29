@@ -10,17 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+<<<<<<< HEAD
 
 // Route::get('/feed', function () {
 //     return view('feed');
 // });
 Route::get('/feed ', 'apiController@getdata');
 
+=======
+>>>>>>> favorites
 Route::get('/', function () {
     return view('index');
     //return view('autocomplete');
-
-});
+    
+    });
 
 //Create user account in Joboard
 Route::get('auth/register', 'auth\RegisterController@create');
@@ -47,3 +50,16 @@ Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 // Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
+=======
+
+
+
+//route for feed page through api controller to grab user data//
+// Route::get('feed', 'apiController@getdata');
+// //route for saving favorite jobs ito favorites//
+
+// Route::get('addJobs', 'FavoritesController@store');
+// Route::delete('deleteJob', 'FavoritesController@destroy');
+
+>>>>>>> favorites
