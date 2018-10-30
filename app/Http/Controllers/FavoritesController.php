@@ -18,7 +18,6 @@ class FavoritesController extends Controller
     public function index(Request $request) {
         $faves=Favorites::orderBy('created_at', 'desc')->paginate(3);
         dd($faves);
-        return view('feed')->with('favorites',$fave);
     }
 
 

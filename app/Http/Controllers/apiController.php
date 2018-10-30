@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Careerjet_API;
+use App\User;
+
 class apiController extends Controller
+
 {
     public function getdata() 
     {
         $careers = new Careerjet_API('en_CA');
+        $user = User::find(auth()->id());
+
+        
       
     
         // Then call the search methods (see below for parameters)

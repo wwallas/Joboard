@@ -81,8 +81,8 @@
             </div>
                 <hr>
             <h3 class="fav-title text-center">Your Favorites</h3>
-            @isset($faves
-            foreach($)   
+            @isset($faves)
+            @foreach($faves as $fave)   
             <div class="favorites row ">
                 <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
                     <div class="card-body">
@@ -93,7 +93,9 @@
                     </div>
                 </div>
             </div>
-            
+     
+            @endforeach
+            @endif
 
 
             <div class="container">
