@@ -26,14 +26,8 @@ class ProfileController extends Controller
         $id= auth()->user()->id;
         $user = User::find($id);
         //dd($user);
-//
-        // $technos = DB::table('profiles')
-        //     ->select('Technologys.id','Technologys.description')
-        //     ->join('profile_webteches', 'users.id', '=', 'Technologys.user_id')
-        //     ->where('profile_webteches.user_id', $user_id)
-        //     ->orderby ('Technologys.description')->get();
 
-        // dd($technos);
+
         // return view('profile.index')->with('technos', $technos, $user);
 
         return view('profile.index', compact('user'));

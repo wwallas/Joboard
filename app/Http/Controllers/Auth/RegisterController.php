@@ -65,7 +65,7 @@ class RegisterController extends Controller
         session()->flash('message', 'You have successfully registered an account');
         //return redirect()->home;
 
-        return redirect('/auth/login');
+        return redirect('/profile/index');
     }
 
 }

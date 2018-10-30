@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 use App\Technology;
-use App\ProfileWebteche;
+use App\TechnologyUser;
 
 use Auth;
 
@@ -23,20 +23,18 @@ class ProfileWebtecheController extends Controller
         $id= auth()->user()->id;
         $user = User::find($id);
         // dd($user->profile->technology);
-        $techs = $user->profile->technology;
-        dd($techs);
+        // dd($techid);
+        // $techs = $user->technology;
 
-        if($techs == null){
-            $data['user_id']= auth()->user()->id;
-            $data['Technology_id']= $techid;
+        // $matchThese = ['technology_id' => $techid, 'user_id' => $user];
+        // $techs= TechnologyUser::where($matchThese)->count();
 
-            //dd($data);
-            //set the $follower variable, so the ID of our new row is accesible there
-            $addtech = ProfileWebteche::create($data);
-            // dd($addtech);
+        // $user->technologies()->attach($techid);
 
-
-        }
+        //$user->technologies()->syncWithoutDetaching([$techid->id]);
+        if (! $user->technologies->contains($techid->id)) {
+                $user->technologies()->save($techid);
+            }
 
         return back();
 

@@ -29,6 +29,6 @@ class CreateTechnologyUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profile_technology');
+        Schema::dropIfExists('technology_user');
     }
 }

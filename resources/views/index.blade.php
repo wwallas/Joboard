@@ -7,7 +7,7 @@
    <div class="wrapper animated bounceInLeft" >
        <div class="company-info">
            <h3></h3>
-           <img src="/img/tweeter-bird.png" alt="Tweeter" width="300" height="280" />
+          
        </div>
        <div class="contact">
            <div class="row p-5">
