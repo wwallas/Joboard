@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Careerjet_API;
 use App\User;
+use App\Favorites;
 
 class apiController extends Controller
 
@@ -15,7 +16,7 @@ class apiController extends Controller
     {
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
-
+        $faves=Favorites::orderBy('created_at', 'desc')->paginate(3);
         
       
     

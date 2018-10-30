@@ -81,21 +81,25 @@
             </div>
                 <hr>
             <h3 class="fav-title text-center">Your Favorites</h3>
+
+
+            <div class="favorites row ">
             @isset($faves)
             @foreach($faves as $fave)   
-            <div class="favorites row ">
+
                 <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
                     <div class="card-body">
                         <button class="btn btn-xs btn-danger">X</button>
-                        <h5 class="card-title text-center"></h5>
-                        <p class="card-text"></p>
-                        <a href= class="text-centercard-link" title="link">Go somewhere</a>
+                        <h5 class="card-title text-center">{{ $fave->title }}</h5>
+                        <p class="card-text">{{ $fave->company }}</p>
+                        <a href="{{ $fave->url }}" class="text-centercard-link" title="link">Apply</a>
                     </div>
                 </div>
+                @endforeach
+                @endif
             </div>
      
-            @endforeach
-            @endif
+           
 
 
             <div class="container">
