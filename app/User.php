@@ -37,4 +37,8 @@ class User extends Authenticatable
     public function technologies(){
         return $this->belongsToMany(Technology::class);
     }
+
+    public function addToFavorites(){
+        return $this->belongsToMany(Favorites::class);
+    }
 }

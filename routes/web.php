@@ -11,11 +11,6 @@
 |
 */
 
-// <<<<<<< HEAD
-// Route::get('/feed', function () {
-//     return view('feed');
-// });
-// Route::get(' ', 'apiController@getdata');
 
 Route::get('/', function () {
     return view('index');

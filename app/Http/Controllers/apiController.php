@@ -6,11 +6,17 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Careerjet_API;
+use App\User;
+
 class apiController extends Controller
+
 {
     public function getdata() 
     {
         $careers = new Careerjet_API('en_CA');
+        $user = User::find(auth()->id());
+
+        
       
     
         // Then call the search methods (see below for parameters)
@@ -26,9 +32,9 @@ class apiController extends Controller
                                 // return response()->json($result);
                                 
                                 if ($result->type == 'JOBS') {
-                                    echo "Got ".$result->hits." jobs: \n";
-                                    echo " On ".$result->pages." pages \n";
+                                 
                                     $jobs = $result->jobs;
+                                   
                                 }
                               
                                 //     foreach ($jobs as $job) {
@@ -42,8 +48,8 @@ class apiController extends Controller
                                 //         // echo " SITE:   ".$job->site."\n";
                                 //         // echo "\n" ;
                                 //      }
-
-    return view('feed',compact('jobs'));
+                                   
+    return view('feed',compact('jobs', 'faves'));
       }
       
   }
