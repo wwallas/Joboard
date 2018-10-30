@@ -38,10 +38,8 @@ Route::put('/profile','ProfileController@update');
 Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 //Route::get('/profile/index','ProfileWebtecheController@alltechno');
 
-
-//     return view('welcome');
-// });
-
-// Auth::routes();
-//
-// Route::get('/home', 'HomeController@index')->name('home');
+//route for feed page through api controller to grab user data//
+Route::get('feed', 'apiController@getdata');
+                //route for saving favorite jobs ito favorites//
+Route::get('addJobs', 'FavoritesController@store');
+Route::delete('deleteJob', 'FavoritesController@destroy');
