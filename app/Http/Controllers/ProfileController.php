@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
-use App\Webtechno;
+use App\Technology;
 use Auth;
 
 class ProfileController extends Controller
@@ -25,10 +25,22 @@ class ProfileController extends Controller
     {
         $id= auth()->user()->id;
         $user = User::find($id);
-        // dd($user);
+        //dd($user);
+//
+        // $technos = DB::table('profiles')
+        //     ->select('Technologys.id','Technologys.description')
+        //     ->join('profile_webteches', 'users.id', '=', 'Technologys.user_id')
+        //     ->where('profile_webteches.user_id', $user_id)
+        //     ->orderby ('Technologys.description')->get();
 
-        return view('/profile.index')->with('user', $user);
+        // dd($technos);
+        // return view('profile.index')->with('technos', $technos, $user);
+
+        return view('profile.index', compact('user'));
+
+        // return view('/profile.index')->with('user', $user,'technos', $technos, $user->profile_webteches);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +52,7 @@ class ProfileController extends Controller
         $id= auth()->user()->id;
         $user = User::find($id);
 
-        $techs = Webtechno::all();
+        $techs = Technology::all();
 		// return view('admin.testimonials.index', compact('testimonials'));
 
         return view('profile.profileupdate', compact('techs'))->with('user', $user);
@@ -108,7 +120,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $user_id= auth()->user()->id;
 

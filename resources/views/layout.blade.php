@@ -58,7 +58,7 @@
                       @csrf
                   </form></a>
 
-                  <a class="dropdown-item fas fa-user-check" href="{{ url('/profile/profileupdate') }}">profile</a>
+                  <a class="dropdown-item fas fa-user-check" href="{{ url('/profile/index') }}">profile</a>
                   </div>
              </li></i>
         </ul>
