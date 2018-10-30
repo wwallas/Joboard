@@ -11,6 +11,12 @@
 |
 */
 
+<<<<<<< HEAD
+// Route::get('/feed', function () {
+//     return view('feed');
+// });
+Route::get(' ', 'apiController@getdata');
+=======
 Route::get('/', function () {
     return view('index');
     //return view('autocomplete');
@@ -44,3 +50,4 @@ Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 // Auth::routes();
 //
 // Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> 81247729b51916f453f55ccb26e08a0863d1b473
