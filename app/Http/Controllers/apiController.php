@@ -9,11 +9,21 @@ use App\Careerjet_API;
 use App\User;
 use App\Favorites;
 
+
 class apiController extends Controller
 
 {
     public function getdata() 
+
+
     {
+
+                    //get profile query search data//
+        $id= auth()->user()->id;
+        $user = User::find($id);
+        $favorites = Technology::find($user)->where($technologies->description)->get();
+
+                    
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
         $faves=Favorites::orderBy('created_at', 'desc')->paginate(3);
@@ -23,7 +33,7 @@ class apiController extends Controller
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
-                                         'keywords' => 'developer',
+                                         'keywords' => 'developer'+ $favorites,
                                          'location' => 'Calgary',
                                          'affid'    => 'd9c8f942114d73022683107e1fd8d6c4',
                                        )

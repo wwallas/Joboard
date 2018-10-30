@@ -89,7 +89,11 @@
 
                 <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
                     <div class="card-body">
+                        @csrf
+                        <form action='deleteJob' method="PUT">
                         <button class="btn btn-xs btn-danger">X</button>
+                        <input type="hidden" name="delete" value="destroy>
+                        </form>
                         <h5 class="card-title text-center">{{ $fave->title }}</h5>
                         <p class="card-text">{{ $fave->company }}</p>
                         <a href="{{ $fave->url }}" class="text-centercard-link" title="link">Apply</a>
