@@ -27,6 +27,9 @@ class FavoritesController extends Controller
 
     public function store(Request $request)
     {
+
+
+
         // dd($request->all());
        
             $data['user_id'] = auth()->id();
