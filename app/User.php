@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\ProfileWebteche;
+use App\Webtechno;
 
 class User extends Authenticatable
 {
@@ -33,8 +34,8 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    public function profileWebteche(){
-        return $this->belongsToMany(ProfileWebteche::class);
+    public function technologies(){
+        return $this->belongsToMany(Technology::class);
     }
 
     public function addToFavorites(){

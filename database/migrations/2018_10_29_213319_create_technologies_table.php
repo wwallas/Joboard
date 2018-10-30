@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWebtechnosTable extends Migration
+class CreateTechnologiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWebtechnosTable extends Migration
      */
     public function up()
     {
-        Schema::create('webtechnos', function (Blueprint $table) {
+        Schema::create('technologies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateWebtechnosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('webtechnos');
+        Schema::dropIfExists('technologies');
     }
 }

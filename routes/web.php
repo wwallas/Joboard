@@ -35,11 +35,13 @@ Route::post('auth/login', 'auth\LoginController@store');
 Route::get('auth/logout', 'auth\LoginController@destroy');
 
 
+Route::get('/profile/index','ProfileController@index');
 Route::get('profile/profileupdate','ProfileController@create');
-
+Route::put('/profile','ProfileController@update');
 
 Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
-// Route::get('/followers/{user}/follow','FollowerController@create');
+//Route::get('/profile/index','ProfileWebtecheController@alltechno');
+
 
 //     return view('welcome');
 // });
