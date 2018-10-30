@@ -42,4 +42,5 @@ Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 Route::get('feed', 'apiController@getdata');
                 //route for saving favorite jobs ito favorites//
 Route::get('addJobs', 'apiController@getdata');
+Route::get('addJobs', 'FavoritesController@store');
 Route::delete('deleteJob', 'FavoritesController@destroy');
