@@ -16,7 +16,7 @@ class FavoritesMigration extends Migration
         Schema::create('favorites', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->json('title');
+            $table->string('title');
             $table->text('company');
             $table->text('url');
             $table->timestamps();
@@ -31,6 +31,8 @@ class FavoritesMigration extends Migration
      */
     public function down()
     {
-        //
+        {
+            Schema::dropIfExists('favorites');
+        }
     }
 }

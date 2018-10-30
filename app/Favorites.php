@@ -5,9 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use \App\Http\Controllers\FavoritesController;
 
-class FavoritesModel extends Model
+class Favorites extends Model
 {
-    protected $fillable =['user_id', ];
+    protected $fillable = ['user_id','url','title','company', ];
     protected $casts =[
                 'jobs'=>'array',
 

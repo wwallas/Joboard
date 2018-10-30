@@ -81,17 +81,19 @@
             </div>
                 <hr>
             <h3 class="fav-title text-center">Your Favorites</h3>
+            @isset($faves
+            foreach($)   
             <div class="favorites row ">
                 <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
                     <div class="card-body">
                         <button class="btn btn-xs btn-danger">X</button>
-                        <h5 class="card-title text-center">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="text-centercard-link" title="link">Go somewhere</a>
+                        <h5 class="card-title text-center"></h5>
+                        <p class="card-text"></p>
+                        <a href= class="text-centercard-link" title="link">Go somewhere</a>
                     </div>
                 </div>
             </div>
-        
+            
 
 
             <div class="container">
@@ -99,6 +101,7 @@
 
         
             <div class="row">
+            @isset($jobs)
             @foreach($jobs as $job)
            
             <a href="{{ $job ->url }}">
@@ -110,14 +113,15 @@
                                         </div>
                                         <div class="our-services-text">
                                             <form action="addJobs">
+                                                @csrf
                                                 <h3>{{ $job ->company }}
-                                            <input type="hidden" name="{{ $job ->company }}"/>
+                                            <input type="hidden" name="company" value="{{ $job ->company }}"/>
                                                 <p>{{ $job ->locations }}</p>
                                                 <h4>{{ $job ->title }}</h4></a>
-                                            <input type="hidden" name="{{ $job ->title }}"/>
+                                            <input type="hidden" name="title" value="{{ $job ->title }}"/>
                                                 <p>{{ $job ->description }}</p>
                                                 <p>{{ $job ->salary }}</p>
-                                            <input type="hidden" name= "{{ $job->url }}"/>    
+                                            <input type="hidden" name="url" value="{{ $job->url }}"/>    
                                                 <button class="btn btn-xs btn-primary">add to favorites</button>
                                             </form>
                                         </div>
@@ -127,7 +131,7 @@
                 </a>
                         
             @endforeach
-                        
+            @endif             
                             
             </div>
         </div>

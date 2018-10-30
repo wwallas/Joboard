@@ -16,7 +16,7 @@ class apiController extends Controller
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
-                                         'keywords' => 'junior','it',
+                                         'keywords' => 'developer',
                                          'location' => 'Calgary',
                                          'affid'    => 'd9c8f942114d73022683107e1fd8d6c4',
                                        )
@@ -26,8 +26,7 @@ class apiController extends Controller
                                 // return response()->json($result);
                                 
                                 if ($result->type == 'JOBS') {
-                                    echo "Got ".$result->hits." jobs: \n";
-                                    echo " On ".$result->pages." pages \n";
+                                 
                                     $jobs = $result->jobs;
                                    
                                 }
@@ -43,8 +42,8 @@ class apiController extends Controller
                                 //         // echo " SITE:   ".$job->site."\n";
                                 //         // echo "\n" ;
                                 //      }
-
-    return view('feed',compact('jobs'));
+                                   
+    return view('feed',compact('jobs', 'faves'));
       }
       
   }
