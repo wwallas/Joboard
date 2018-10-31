@@ -29,12 +29,12 @@ class ProfileWebtecheController extends Controller
         // $matchThese = ['technology_id' => $techid, 'user_id' => $user];
         // $techs= TechnologyUser::where($matchThese)->count();
 
-        // $user->technologies()->attach($techid);
+        $user->technologies()->attach($techid);
 
         //$user->technologies()->syncWithoutDetaching([$techid->id]);
-        if (! $user->technologies->contains($techid->id)) {
-                $user->technologies()->save($techid);
-            }
+        // if (! $user->technologies->contains($techid->id)) {
+        //         $user->technologies()->save($techid);
+        //     }
 
         return back();
 
@@ -64,5 +64,13 @@ class ProfileWebtecheController extends Controller
 
         // dd($followers);
         //return view('profile.index')->with('technos', $technos, $user->profile_webteches);
+    }
+
+    public function destroy($techid)
+    {
+        // dd($id);
+
+        $user->technologies()->detach($techid);
+        return back();
     }
 }

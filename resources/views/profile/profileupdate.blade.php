@@ -46,6 +46,12 @@
 					</a>
 
 				</div>
+                <div class="col text-right">
+					<a href="/profile/{{ $tech->id }}/destroy" class="btn btn-sm btn-danger">
+						<i class="fa fa-pencil">Delete</i>
+					</a>
+
+				</div>
     		</div>
     		@endforeach
         </div>
