@@ -13,8 +13,8 @@ class Favorites extends Model
 
     ];
     
-    public function Favorites() {
-        return $this->HasOne(User::class);
+    public function users() {
+        return $this->belongsTo(User::class);
     }
 
     

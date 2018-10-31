@@ -8,32 +8,48 @@ use GuzzleHttp\Client;
 use App\Careerjet_API;
 use App\User;
 use App\Favorites;
+use DB;
 
 
 class apiController extends Controller
 
 {
+
+    //using guzzle to call meetup api//
+  public function getMeetup(){
+  $client = new Client();
+  $info = $client->post('https://api.meetup.com1/find/groups2?zip=11211&radius=1&category=253&order=members4',[
+    'form_params' => [
+      'key'=>'23117573164795e671d266e5962281a'
+    ]
+  ]);
+dd($info);
+
+  return view('meetup',compact('meetup'));
+
+}
+
     public function getdata() 
 
 
     {
 
                     //get profile query search data//
-        $id= auth()->user()->id;
-        $user = User::find($id);
-        $favorites = Technology::find($user)->where($technologies->description)->get();
+        // $id= auth()->user()->id;
+        // $user = User::find($id);
+        $choices = DB::table('technologies')->get(); 
 
                     
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
-        $faves=Favorites::orderBy('created_at', 'desc')->paginate(3);
+        $faves=Favorites::orderBy('created_at', 'desc')->simplePaginate(3);
         
       
     
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
-                                         'keywords' => 'developer'+ $favorites,
+                                         'keywords' => 'developer',
                                          'location' => 'Calgary',
                                          'affid'    => 'd9c8f942114d73022683107e1fd8d6c4',
                                        )
