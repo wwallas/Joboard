@@ -38,8 +38,21 @@ dd($info);
                 // $id= auth()->user()->id;
                 // $user = User::find($id);
         $user = User::find(auth()->id());
-        $choices = DB::table('technologies')->where($user)->get(); 
-        dd($choices);
+        
+        $choices = $user->technologies;
+         
+        foreach ($choices as $choice) {
+          // echo " URL: ".$choice->description;
+          // dd($choices);
+
+          $keywords = $choice->description;
+       }
+       
+      
+        
+        // ->leftjoin('technologies','description','=', 'user_id')
+        // ->get(); 
+        // dd($choices);
                     
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
@@ -50,7 +63,7 @@ dd($info);
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
-                                         'keywords' => 'developer',
+                                         'keywords' => $keywords,
                                          'location' => 'Calgary',
                                          'affid'    => 'd9c8f942114d73022683107e1fd8d6c4',
                                        )
@@ -65,17 +78,7 @@ dd($info);
                                    
                                 }
                               
-                                //     foreach ($jobs as $job) {
-                                //         echo " URL: ".$job->url."\n";
-                                //         echo " TITLE: ".$job->title."\n";
-                                //         // echo " LOC:   ".$job->locations."\n";
-                                //         // echo " COMPANY: ".$job->company."\n";
-                                //         // echo " SALARY: ".$job->salary."\n";
-                                //         // echo " DATE:   ".$job->date."\n";
-                                //         // echo " DESC:   ".$job->description."\n";
-                                //         // echo " SITE:   ".$job->site."\n";
-                                //         // echo "\n" ;
-                                //      }
+                                   
                                    
     return view('feed',compact('jobs', 'faves'));
       }
