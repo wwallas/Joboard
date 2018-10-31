@@ -37,10 +37,6 @@ Route::put('/profile','ProfileController@update');
 
 Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f53a88044a5f7f2d00b5ca2f47e7b209ddb6ca48
 
 // Route::get('/profile/index','ProfileWebtecheController@alltechno');
 //  return view('welcome');
@@ -50,11 +46,6 @@ Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 //
 // Route::get('/feed', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f53a88044a5f7f2d00b5ca2f47e7b209ddb6ca48
 //route for feed page through api controller to grab user data//
 Route::get('feed', 'apiController@getdata');
 
@@ -65,10 +56,7 @@ Route::get('addJobs', 'apiController@getdata');
 //favorite routes store to database//
 Route::get('addJobs', 'FavoritesController@store');
 Route::delete('deleteJob', 'FavoritesController@destroy');
-<<<<<<< HEAD
-// >>>>>>> de4259d580113d567a9c07cd108a7c589c29a0ef
-=======
 
-//Route for meetup page//
+//meetup route
+
 Route::get('meetup', 'apiController@getMeetup');
->>>>>>> f53a88044a5f7f2d00b5ca2f47e7b209ddb6ca48

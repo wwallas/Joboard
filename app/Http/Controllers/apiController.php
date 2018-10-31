@@ -15,7 +15,7 @@ class apiController extends Controller
 
 {
 
-    //using guzzle to call meetup api//
+//     //using guzzle to call meetup api//
   public function getMeetup(){
   $client = new Client();
   $info = $client->post('https://api.meetup.com1/find/groups2?zip=11211&radius=1&category=253&order=members4',[
@@ -34,11 +34,12 @@ dd($info);
 
     {
 
-                    //get profile query search data//
-        // $id= auth()->user()->id;
-        // $user = User::find($id);
-        $choices = DB::table('technologies')->get(); 
-
+                //get profile query search data//
+                // $id= auth()->user()->id;
+                // $user = User::find($id);
+        $user = User::find(auth()->id());
+        $choices = DB::table('technologies')->where($user)->get(); 
+        dd($choices);
                     
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
