@@ -90,9 +90,9 @@
                 <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
                     <div class="card-body">
                         @csrf
-                        <form action='deleteJob' method="PUT">
-                        <button class="btn btn-xs btn-danger">X</button>
-                        <input type="hidden" name="delete" value="destroy>
+                        <form action='deleteJob' method="POST">
+                        <button class="btn btn-xs btn-danger" type="submit">X</button>
+                        <input type="hidden" name="_method" value="DELETE">
                         </form>
                         <h5 class="card-title text-center">{{ $fave->title }}</h5>
                         <p class="card-text">{{ $fave->company }}</p>
