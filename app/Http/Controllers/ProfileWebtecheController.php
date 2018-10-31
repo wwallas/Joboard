@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
 use App\Technology;
-use App\TechnologyUser;
+use App\ProfileWebteche;
 
 use Auth;
 
@@ -23,18 +23,25 @@ class ProfileWebtecheController extends Controller
         $id= auth()->user()->id;
         $user = User::find($id);
         // dd($user->profile->technology);
-        // dd($techid);
-        // $techs = $user->technology;
+        $techs = $user->profile->technology;
+        dd($techs);
 
-        // $matchThese = ['technology_id' => $techid, 'user_id' => $user];
-        // $techs= TechnologyUser::where($matchThese)->count();
+
 
         $user->technologies()->attach($techid);
 
         //$user->technologies()->syncWithoutDetaching([$techid->id]);
         // if (! $user->technologies->contains($techid->id)) {
         //         $user->technologies()->save($techid);
-        //     }
+        //
+            //dd($data);
+            //set the $follower variable, so the ID of our new row is accesible there
+            $addtech = ProfileWebteche::create($data);
+            // dd($addtech);
+
+
+        }
+
 
         return back();
 
@@ -47,8 +54,7 @@ class ProfileWebtecheController extends Controller
         $user_id= auth()->user()->id;
         $user = User::find($user_id);
 
-        $user = Profile::find($user);
-
+        
         dd($user->Technology);
 // dd($user);
         // $technos = DB::table('profiles')
@@ -68,7 +74,8 @@ class ProfileWebtecheController extends Controller
 
     public function destroy($techid)
     {
-        // dd($id);
+        $id= auth()->user()->id;
+       $user = User::find($id);
 
         $user->technologies()->detach($techid);
         return back();
