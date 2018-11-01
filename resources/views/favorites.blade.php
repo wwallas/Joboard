@@ -1,6 +1,5 @@
 @extends('feedlayout')
-
-<!doctype html>
+    <!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
             <meta charset="utf-8">
@@ -30,13 +29,14 @@
     }
     .our-services-img {
         float: left;
-        margin-left:auto;
-        margin-right: auto;
+        margin-left: -36px;
+        margin-right: 22px;
         margin-top: 28px;
     }
     .our-services-text {
-        height:300px;
         padding-right: 10px;
+    }
+    .our-services-text {
         overflow: hidden;
         padding: 28px 0 25px;
     }
@@ -77,18 +77,14 @@
             </style>
         </head>
         <body>
-            <div class="title">
-                <h1 class="text-center">Check out these networking events!</h1>
-            </div>
-                <hr>
-            <div class="container">
-               
+          
+            <h3 class="fav-title text-center">Your Favorites</h3>
 
-            <div class="row">
+           <div class="row">
+            @isset($jobs)
+            @foreach($jobs as $job)
            
-            @foreach($meetup as $meet)
-           
-            <a href="{{ $meet ->link }}">
+            <a href="{{ $job ->url }}">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                 <div class="our-services-wrapper mb-60">
                                     <div class="services-inner">
@@ -96,24 +92,26 @@
                                     
                                         </div>
                                         <div class="our-services-text">
-                                         
-                                                <h3>{{ $meet ->name}}
-                                                </a>
-                                                <p>{{ $meet ->city }}</p>
-                                                <!-- <h4>{{ $meet ->link}}</h4></a> -->
-                                           
-                                                <p>{{ substr(strip_tags($meet ->description), 0, 350) }}</p>
-                                            
-                                          
-                                           
+                                            <form action="addJobs">
+                                                @csrf
+                                                <h3>{{ $job ->company }}
+                                            <input type="hidden" name="company" value="{{ $job ->company }}"/>
+                                                <p>{{ $job ->locations }}</p>
+                                                <h4>{{ $job ->title }}</h4></a>
+                                            <input type="hidden" name="title" value="{{ $job ->title }}"/>
+                                                <p>{{ $job ->description }}</p>
+                                                <p>{{ $job ->salary }}</p>
+                                            <input type="hidden" name="url" value="{{ $job->url }}"/>    
+                                                <button class="btn btn-xs btn-primary">add to favorites</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-               
+                </a>
                         
             @endforeach
-                
+            @endif             
                             
             </div>
         </div>

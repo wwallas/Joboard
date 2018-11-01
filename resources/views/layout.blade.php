@@ -13,7 +13,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/litera/bootstrap.min.css" rel="stylesheet" integrity="sha384-EHn394B6EAtw4HZN4uqeUmZQO1bj/l7+L9ToHR0izJSXw2BNB5cuhR3weBJup/95" crossorigin="anonymous">
-    <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/stylesheet.css" rel="stylesheet">
 
 
