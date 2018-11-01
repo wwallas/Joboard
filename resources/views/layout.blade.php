@@ -35,7 +35,7 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
               @if (Auth::check())
-                    <a class="nav-link" href="/displayMenu">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ url('/displaymenu') }}">>Home <span class="sr-only">(current)</span></a>
               @endif
           </li>
           <li class="nav-item">

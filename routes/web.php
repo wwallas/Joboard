@@ -30,6 +30,11 @@ Route::post('auth/login', 'auth\LoginController@store');
 
 Route::get('auth/logout', 'auth\LoginController@destroy');
 
+Route::get('displaymenu', function(){
+    return view('displaymenu');
+});
+
+
 
 Route::get('/profile/index','ProfileController@index');
 Route::get('profile/profileupdate','ProfileController@create');
