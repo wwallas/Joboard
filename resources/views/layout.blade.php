@@ -16,7 +16,7 @@
     <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="/css/stylesheet.css" rel="stylesheet">
 
-    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+
     <!-- Custom styles for this template -->
     <link href="/css/navbar-top-fixed.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -30,10 +30,11 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
       <a class="navbar-brand" href="/"><img class="it-image" src="/img/download.png" ></a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="app-navbarCollapse">
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
               @if (Auth::check())

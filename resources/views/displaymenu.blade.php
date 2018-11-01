@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-
+<link rel="stylesheet" href="/css/style.css">
     <div class="jumbotron" style="background-color:#fff">
 
         <main>
