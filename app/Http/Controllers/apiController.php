@@ -53,7 +53,7 @@ class apiController extends Controller
           // search carreerjet api for results
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
-        $faves=Favorites::orderBy('created_at', 'desc')->simplePaginate(3);
+        // $faves=Favorites::orderBy('created_at', 'desc')->simplePaginate(3);
         
       
      
@@ -78,7 +78,7 @@ class apiController extends Controller
                               
                                    
                                    
-    return view('feed',compact('jobs', 'faves'));
+    return view('feed',compact('jobs'));
       }
       
   }

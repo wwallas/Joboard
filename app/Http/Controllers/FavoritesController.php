@@ -16,8 +16,10 @@ use DB;
 class FavoritesController extends Controller
 {
     public function index(Request $request) {
-        $faves=Favorites::orderBy('created_at', 'desc')->paginate(3);
-        dd($faves);
+        $faves=Favorites::orderBy('created_at', 'desc')->paginate(10);
+        // dd($faves);
+
+        return view('favorites', compact('faves'));
     }
 
 
@@ -39,8 +41,8 @@ class FavoritesController extends Controller
     
             $faves=Favorites::create($data);
        
-       
+            // dd($faves);
 
-        return redirect('/feed');
+        return view('favorites',compact('faves'));
     }
 }

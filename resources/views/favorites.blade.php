@@ -1,4 +1,4 @@
-@extends('feedlayout')
+@extends('layout')
     <!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
@@ -81,10 +81,10 @@
             <h3 class="fav-title text-center">Your Favorites</h3>
 
            <div class="row">
-            @isset($jobs)
-            @foreach($jobs as $job)
+            @isset($faves)
+            @foreach($faves as $fave)
            
-            <a href="{{ $job ->url }}">
+          
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                 <div class="our-services-wrapper mb-60">
                                     <div class="services-inner">
@@ -92,23 +92,22 @@
                                     
                                         </div>
                                         <div class="our-services-text">
-                                            <form action="addJobs">
                                                 @csrf
-                                                <h3>{{ $job ->company }}
-                                            <input type="hidden" name="company" value="{{ $job ->company }}"/>
-                                                <p>{{ $job ->locations }}</p>
-                                                <h4>{{ $job ->title }}</h4></a>
-                                            <input type="hidden" name="title" value="{{ $job ->title }}"/>
-                                                <p>{{ $job ->description }}</p>
-                                                <p>{{ $job ->salary }}</p>
-                                            <input type="hidden" name="url" value="{{ $job->url }}"/>    
-                                                <button class="btn btn-xs btn-primary">add to favorites</button>
-                                            </form>
+                                                <h3>{{ $fave ->company }}
+                                            
+                                                <p>{{ $fave->locations }}</p>
+                                                <h4>{{ $fave ->title }}</h4></a>
+                                                <a href="{{ $fave ->url }}"> Check it out!</a>
+    
+                                                <p>{{ $fave ->salary }}</p>
+                                              
+                                               
+                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                </a>
+               
                         
             @endforeach
             @endif             

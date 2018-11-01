@@ -55,6 +55,5 @@ Route::get('addJobs', 'FavoritesController@store');
 Route::delete('deleteJob', 'FavoritesController@destroy');
 Route::get('meetup', 'apiController@getMeetup');
 
-Route::get('favorites', function(){
-    return view('favorites');
-});
+Route::get('addJobs', 'FavoritesController@index');
+Route::get('favorites','FavoritesController@index');

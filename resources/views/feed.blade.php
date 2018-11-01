@@ -1,18 +1,9 @@
+    @extends('layout')
     <!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            <title>Laravel</title>
-
-            <!-- Fonts -->
-            <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
     
-            <!-- Styles -->
             <style>
             .mb-60 {
         margin-bottom: 60px;
@@ -79,31 +70,7 @@
             <div class="title">
                 <h1 class="text-center">Welcome to the Quest for you Perfect Job!</h1>
             </div>
-                <hr>
-            <h3 class="fav-title text-center">Your Favorites</h3>
-
-
-            <div class="favorites row ">
-            @isset($faves)
-            @foreach($faves as $fave)   
-
-                <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
-                    <div class="card-body">
-                        @csrf
-                        <form action='deleteJob' method="POST">
-                        <button class="btn btn-xs btn-danger" type="submit">X</button>
-                        <input type="hidden" name="_method" value="DELETE">
-                        </form>
-                        <h5 class="card-title text-center">{{ $fave->title }}</h5>
-                        <p class="card-text">{{ $fave->company }}</p>
-                        <a href="{{ $fave->url }}" class="text-centercard-link" title="link">Apply</a>
-                    </div>
-                </div>
-                @endforeach
-                @endif
-            </div>
-     
-           
+        
 
 
             <div class="container">
