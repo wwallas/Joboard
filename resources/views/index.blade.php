@@ -1,13 +1,13 @@
 
-@extends('layout')
+@extends('main')
 
 @section('content')
-<div class="container">
+<!-- <div class="container">
 
    <div class="wrapper animated bounceInLeft" >
        <div class="company-info">
            <h3></h3>
-          
+
        </div>
        <div class="contact">
            <div class="row p-5">
@@ -20,6 +20,6 @@
              <a href="/auth/register" class="btn btn-primary">Sign Up</a>
        </div>
    </div>
-</div>
+</div> -->
 
 @endsection

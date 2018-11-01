@@ -58,7 +58,7 @@ class RegisterController extends Controller
             //dd($data);
             //set the $post variable, so the ID of our new row is accesible there
             $profile = Profile::create($data);
-            // dd($profile);
+            // dd($profile);s
         }
         auth()->login($user);
         //redirect to the home page
