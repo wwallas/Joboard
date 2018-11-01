@@ -1,6 +1,14 @@
 .topnav-right {
   float: right;
 }
+.it-image{
+    width:90px;
+    height:32px;
+
+    top:10px;
+    /* margin-left: 50%; */
+
+}
 
 .dot {
     height: 210px;
