@@ -40,6 +40,8 @@ Route::get('/profile/index','ProfileController@index');
 Route::get('profile/profileupdate','ProfileController@create');
 Route::put('/profile','ProfileController@update');
 
+
+
 Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 Route::get('/profile/{techid}/destroy', 'ProfileWebtecheController@destroy');
 

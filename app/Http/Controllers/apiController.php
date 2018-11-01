@@ -9,6 +9,7 @@ use App\Careerjet_API;
 use App\User;
 use App\Favorites;
 use DB;
+use Profile;
 
 
 class apiController extends Controller
@@ -19,60 +20,44 @@ class apiController extends Controller
   public function getMeetup(){
   
   $client = new Client(['verify'=> false]);
-  // https://api.meetup.com/topics?search=tech&key=23117573164795e671d266e5962281a
+      //meetup api request with key and params
   $meetups = $client->get('https://api.meetup.com/find/groups?sign=true&text=technology&country=CA&location=Calgary&category=34&page=30&key=23117573164795e671d266e5962281a');
-
+      //decode response into managable fille
   $meetup = json_decode($meetups->getBody()->getContents());
 
-  // if($meetup->type == 'name'){
-  //   $meet->$meetup->name;
-  // }
-//   $meet = $meetup->search( Array(
-                                         
-//     'name' => '',
-//     'city' => 'Calgary',
-//     'description'    => '',
-//     'urlname' => '',
-//   )
-// );
 // dd($meetup);
-
+        //return json data to blade through variable meetup
   return view('meetup',compact('meetup'));
 
 }
 
     public function getdata() 
-
-
     {
+       //get profile query search data//
 
-                //get profile query search data//
-                // $id= auth()->user()->id;
-                // $user = User::find($id);
+          //store auth user in variable
         $user = User::find(auth()->id());
-        
+
+          //store auth user profile params//
         $choices = $user->technologies;
-         
+     
+          //loop through each user params
         foreach ($choices as $choice) {
-          // echo " URL: ".$choice->description;
           // dd($choices);
 
-          $keywords = $choice->description;
+
+          //store users choices in keyword variable
+        $keywords = $choice->description;
        }
-       
-      
-        
-        // ->leftjoin('technologies','description','=', 'user_id')
-        // ->get(); 
-        // dd($choices);
-                    
+                  
+          // search carreerjet api for results
         $careers = new Careerjet_API('en_CA');
         $user = User::find(auth()->id());
         $faves=Favorites::orderBy('created_at', 'desc')->simplePaginate(3);
         
       
      
-        // Then call the search methods (see below for parameters)
+        // filter api response with user choices (see below for parameters)
         $result = $careers->search( array(
                                          
                                          'keywords' => $keywords,
@@ -81,14 +66,15 @@ class apiController extends Controller
                                        )
                                  );
                                
-                                //  dd($result);
-                                // return response()->json($result);
+        //  dd($result);
+        
+        // loop through results
                                 
-                                if ($result->type == 'JOBS') {
-                                 
-                                    $jobs = $result->jobs;
-                                   
-                                }
+        if ($result->type == 'JOBS') {
+          
+            $jobs = $result->jobs;
+            
+        }
                               
                                    
                                    
@@ -107,39 +93,5 @@ class apiController extends Controller
 
 
 
-    // $client = new Client();
 
-    // $result = $client->post('http://public.api.careerjet.net/', [
-    //     'headers' =>
-    //     [
-    //         'locale_code' => 'CA',
-    //         'location' =>'Calgary',
-    //         'keywords' =>'developer',
-    //         'affid' => 'd9c8f942114d73022683107e1fd8d6c4',
-            
-    //     ]
-
-    // ]);
-    
-    // $data = $result;
-    // echo json_encode($data);
-    // dd($data);
-
-    //     }
-    
-
-      // Create a new instance of the interface for UK job offers
-    
-
-
-// function call($fname , $args)
-// {
-//   $url = 'http://public.api.careerjet.net/'.$fname.'?locale_code='.$this->locale;
-
-//   if (empty($args['affid'])) {
-//     return (object) array(
-//       'type' => 'ERROR',
-//       'error' => "Your Careerjet affiliate ID needs to be supplied. If you don't " .
-//                  "have one, open a free Careerjet partner account."
-//     );
-//   }
+ 
