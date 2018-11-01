@@ -28,7 +28,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
 
-      <a class="navbar-brand" href="/"><img src="/img/download.png" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%"></a>
+      <a class="navbar-brand" href="/"><img class="it-image" src="/img/download.png" ></a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

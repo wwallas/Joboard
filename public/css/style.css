@@ -66,6 +66,17 @@ p {
     padding-bottom: 0;
 }
 
+.it-image{
+    width:90px;
+    height:32px;
+
+    top:10px;
+    /* margin-left: 50%; */
+
+}
+
+
+
 /* #showcase .content-wrap,
 #section-a .content-wrap {
     padding: 0 1.5em;
@@ -166,4 +177,7 @@ p {
 #section-b li {
     width: 31%;
 }
-}
+
+/* #section-b .card {
+    border: none;
+} */
