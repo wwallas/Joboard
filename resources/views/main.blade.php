@@ -15,6 +15,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/litera/bootstrap.min.css" rel="stylesheet" integrity="sha384-EHn394B6EAtw4HZN4uqeUmZQO1bj/l7+L9ToHR0izJSXw2BNB5cuhR3weBJup/95" crossorigin="anonymous">
     <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="/css/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css">
     <!-- Custom styles for this template -->
     <link href="/css/navbar-top-fixed.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -23,10 +24,11 @@
   </head>
 
   <body>
-<div id="app">
+<div >
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-      <a class="navbar-brand" href="/">Job Boards</a>
+
+      <a class="navbar-brand" href="/"><img src="/img/download.png" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%"></a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,12 +37,18 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
               @if (Auth::check())
-                    <a class="nav-link" href="/displayMenu">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/displaymenu">Home <span class="sr-only">(current)</span></a>
               @endif
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="ScrollMagic/index">Link</a>
+            <!-- <a class="nav-link" href="ScrollMagic/index">Link</a> -->
+            <a href="/auth/login" class="nav-link">Login</a>
           </li>
+          <li class="nav-item">
+            <!-- <a class="nav-link" href="ScrollMagic/index">Link</a> -->
+            <a href="/auth/register" class="nav-link">Sign Up</a>
+          </li>
+
 
         </ul>
 
@@ -68,6 +76,18 @@
         </form> -->
       </div>
     </nav>
+    <header id="showcase" class="grid">
+        <div class="bg-image"></div>
+        <div class="content-wrap">
+            <h1>Welcome to Job Quest</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis iusto
+                pariatur nisi, maiores consequatur aperiam officia at laboriosam explicabo quibusdam!
+            </p>
+            <div class="container">
+                @yield('content')
+            </div>
+         </div>
+    </header>
 
     <main role="main" class="container">
       <!-- <div class="jumbotron">
