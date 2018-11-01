@@ -43,7 +43,7 @@ class ProfileWebtecheController extends Controller
 
 
         // dd($user->Technology);
-        return view('profile.index',compose($user->Technology));
+        // return view('profile.index',compose($user->Technology));
 
         // dd($followers);
         //return view('profile.index')->with('technos', $technos, $user->profile_webteches);

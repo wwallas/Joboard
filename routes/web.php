@@ -38,7 +38,7 @@ Route::put('/profile','ProfileController@update');
 Route::get('/profile/{techid}/create', 'ProfileWebtecheController@create');
 Route::get('/profile/{techid}/destroy', 'ProfileWebtecheController@destroy');
 
-Route::get('/profile/index','ProfileWebtecheController@alltechno');
+// Route::get('/profile/index','ProfileWebtecheController@alltechno');
 
 
 Route::get('feed', 'apiController@getdata');

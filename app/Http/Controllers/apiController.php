@@ -14,16 +14,28 @@ use DB;
 class apiController extends Controller
 
 {
-
+  
 //     //using guzzle to call meetup api//
   public function getMeetup(){
-  $client = new Client();
-  $info = $client->post('https://api.meetup.com1/find/groups2?zip=11211&radius=1&category=253&order=members4',[
-    'form_params' => [
-      'key'=>'23117573164795e671d266e5962281a'
-    ]
-  ]);
-dd($info);
+  
+  $client = new Client(['verify'=> false]);
+  // https://api.meetup.com/topics?search=tech&key=23117573164795e671d266e5962281a
+  $meetups = $client->get('https://api.meetup.com/find/groups?sign=true&text=technology&country=CA&location=Calgary&category=34&page=30&key=23117573164795e671d266e5962281a');
+
+  $meetup = json_decode($meetups->getBody()->getContents());
+
+  // if($meetup->type == 'name'){
+  //   $meet->$meetup->name;
+  // }
+//   $meet = $meetup->search( Array(
+                                         
+//     'name' => '',
+//     'city' => 'Calgary',
+//     'description'    => '',
+//     'urlname' => '',
+//   )
+// );
+// dd($meetup);
 
   return view('meetup',compact('meetup'));
 
@@ -59,7 +71,7 @@ dd($info);
         $faves=Favorites::orderBy('created_at', 'desc')->simplePaginate(3);
         
       
-    
+     
         // Then call the search methods (see below for parameters)
         $result = $careers->search( array(
                                          
