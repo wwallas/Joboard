@@ -30,10 +30,7 @@
           <a class="btn btn-primary" href="/profile/profileupdate" role="button"  >Edit profile</a>
         </div>
 
-        <div class="col-sm-offset- col-sm-10">
-          <!-- <button type="submit" class="btn btn-default">home</button> -->
-          <a class="btn btn-primary" href="/displaymenu" role="button"  >Home</a>
-        </div>
+        
       </div>
   </form>
 

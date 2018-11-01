@@ -46,7 +46,8 @@ class LoginController extends Controller
         }
 
         //session()->flash('message', 'You have successfully logged in');
-        return view('feed');
+        return view('displaymenu');
+
         //return redirect('/members-only');
     }
 
