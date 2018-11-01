@@ -33,7 +33,20 @@
 
         <div class="form-group">
             @foreach ($techs as $tech)
-    		<div class="list-group-item">
+            <div class="container">
+  <div class="row">
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+    <div class="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
+    		<div class="container">
     			<div class="row">
     				<div class="col">{{ $tech->id }}</div>
     				<div class="col text-right">
