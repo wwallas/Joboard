@@ -1,3 +1,5 @@
+@extends('layout')
+
 <!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
@@ -28,14 +30,13 @@
     }
     .our-services-img {
         float: left;
-        margin-left: -36px;
-        margin-right: 22px;
+        margin-left:auto;
+        margin-right: auto;
         margin-top: 28px;
     }
     .our-services-text {
+        height:300px;
         padding-right: 10px;
-    }
-    .our-services-text {
         overflow: hidden;
         padding: 28px 0 25px;
     }
@@ -77,11 +78,11 @@
         </head>
         <body>
             <div class="title">
-                <h1 class="text-center">Welcome to the Quest for you Perfect Job!</h1>
+                <h1 class="text-center">Check out these networking events!</h1>
             </div>
                 <hr>
             <div class="container">
-                <h2 class="text-center">Local Networking events</h2>
+               
 
             <div class="row">
            
@@ -97,11 +98,11 @@
                                         <div class="our-services-text">
                                          
                                                 <h3>{{ $meet ->name}}
-                                            
+                                                </a>
                                                 <p>{{ $meet ->city }}</p>
-                                                <h4>{{ $meet ->link}}</h4></a>
+                                                <!-- <h4>{{ $meet ->link}}</h4></a> -->
                                            
-                                                <p>{{ $meet ->description }}</p>
+                                                <p>{{ substr(strip_tags($meet ->description), 0, 350) }}</p>
                                             
                                           
                                            
@@ -109,7 +110,7 @@
                                     </div>
                                 </div>
                             </div>
-                </a>
+               
                         
             @endforeach
                 
