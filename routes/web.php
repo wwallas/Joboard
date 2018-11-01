@@ -54,3 +54,7 @@ Route::get('addJobs', 'apiController@getdata');
 Route::get('addJobs', 'FavoritesController@store');
 Route::delete('deleteJob', 'FavoritesController@destroy');
 Route::get('meetup', 'apiController@getMeetup');
+
+Route::get('feedlayout', function(){
+    return view('feedlayout');
+});
