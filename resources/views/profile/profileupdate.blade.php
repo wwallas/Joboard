@@ -34,38 +34,42 @@
         <div class="form-group">
             @foreach ($techs as $tech)
             <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-    <div class="col-sm">
-      One of three columns
-    </div>
-  </div>
-</div>
-    		<div class="container">
+                  <div class="row">
+                    <div class="col-sm">
+                      {{ $tech->id }}
+
+                    </div>
+                    <div class="col-sm">
+                      {{ $tech->description }}
+                    </div>
+                    <div class="col-sm">
+                        <a href="/profile/{{ $tech->id }}/create" class="btn btn-sm btn-primary">
+                            <i class="fa fa-pencil">Add</i>
+                        </a>
+                    </div>
+                    <div class="col-sm">
+                        <a href="/profile/{{ $tech->id }}/destroy" class="btn btn-sm btn-danger">
+                            <i class="fa fa-pencil">Delete</i>
+                        </a>
+                    </div>
+              </div>
+            </div>
+    		<!-- <div class="container">
     			<div class="row">
-    				<div class="col">{{ $tech->id }}</div>
+    				<div class="col"></div>
     				<div class="col text-right">
-    					{{ $tech->description }}
+
     				</div>
     			</div>
                 <div class="col text-right">
-					<a href="/profile/{{ $tech->id }}/create" class="btn btn-sm btn-primary">
-						<i class="fa fa-pencil">Add</i>
-					</a>
+
 
 				</div>
                 <div class="col text-right">
-					<a href="/profile/{{ $tech->id }}/destroy" class="btn btn-sm btn-danger">
-						<i class="fa fa-pencil">Delete</i>
-					</a>
+
 
 				</div>
-    		</div>
+    		</div> -->
     		@endforeach
         </div>
 
