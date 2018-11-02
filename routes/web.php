@@ -50,10 +50,10 @@ Route::get('/profile/{techid}/destroy', 'ProfileWebtecheController@destroy');
 
 Route::get('feed', 'apiController@getdata');
 
-Route::get('addJobs', 'apiController@getdata');
-Route::get('addJobs', 'FavoritesController@store');
+// Route::get('addJobs', 'apiController@getdata');
+// Route::get('addJobs', 'FavoritesController@store');
 Route::delete('deleteJob', 'FavoritesController@destroy');
 Route::get('meetup', 'apiController@getMeetup');
 
-Route::get('addJobs', 'FavoritesController@index');
+Route::get('addJobs', 'FavoritesController@store');
 Route::get('favorites','FavoritesController@index');

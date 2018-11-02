@@ -10,16 +10,17 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Favorites;
 use DB;
+use App\User;
 
 
 
 class FavoritesController extends Controller
 {
     public function index(Request $request) {
-        $faves=Favorites::orderBy('created_at', 'desc')->paginate(10);
-        // dd($faves);
-
-        return view('favorites', compact('faves'));
+        $user = User::find(auth()->id());
+        $faves = $user->favorites()->latest()->paginate(10);
+        
+        return view('favorites', compact('user', 'faves'));
     }
 
 
@@ -43,6 +44,6 @@ class FavoritesController extends Controller
        
             // dd($faves);
 
-        return view('favorites',compact('faves'));
+        return redirect('favorites');
     }
 }
