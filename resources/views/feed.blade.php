@@ -10,6 +10,9 @@
         align-content:center;
        
     }
+    h4{
+        font-family:bold;
+    }
     .services-inner {
         border: 2px solid #48c7ec;
         margin-left: 35px;
@@ -25,10 +28,9 @@
     }
     .our-services-text {
         padding-right: 10px;
-    }
-    .our-services-text {
         overflow: hidden;
         padding: 28px 0 25px;
+        height:325px;
     }
     .our-services-text h4 {
         color: #222222;
@@ -91,12 +93,12 @@
                                         <div class="our-services-text">
                                             <form action="addJobs">
                                                 @csrf
-                                                <h3>{{ $job ->company }}
+                                                <h3>{{ $job ->company }}</a>
                                             <input type="hidden" name="company" value="{{ $job ->company }}"/>
                                                 <p>{{ $job ->locations }}</p>
-                                                <h4>{{ $job ->title }}</h4></a>
+                                                <h4>{{ $job ->title }}</h4>
                                             <input type="hidden" name="title" value="{{ $job ->title }}"/>
-                                                <p>{{ $job ->description }}</p>
+                                                <p>{{ substr(strip_tags($job ->description), 0, 250) }}</p>
                                                 <p>{{ $job ->salary }}</p>
                                             <input type="hidden" name="url" value="{{ $job->url }}"/>    
                                                 <button class="btn btn-xs btn-primary">add to favorites</button>
@@ -105,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>
-                </a>
+             
                         
             @endforeach
             @endif             

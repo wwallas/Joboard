@@ -60,7 +60,9 @@ p {
     z-index: -1;
     opacity: 0.4;
 }
-
+.card{
+    height:600px;
+}
 #showcase h1{
     padding-top: 100px;
     padding-bottom: 0;

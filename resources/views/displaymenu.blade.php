@@ -13,8 +13,7 @@
                                     <div class="card-content">
                                         <a href="/feed">
                                             <h3 class="card-title">Your tailored list</h3>
-                                        </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quo alias, eius provident perferendis cupiditate delectus voluptatum autem libero distinctio, molestias!</p>
+                                        </a>Check out these latest jobs we found just for you!</p>
                                     </div>
                                 </div>
                             </li>
@@ -25,7 +24,7 @@
                                         <a href="favorites">
                                         <h3 class="card-title">My Favorites</h3>
                                         </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quo alias, eius provident perferendis cupiditate delectus voluptatum autem libero distinctio, molestias!</p>
+                                        <p>Some of your favorite job prospects, saved just for you!</p>
                                     </div>
                                 </div>
                             </li>
@@ -34,10 +33,10 @@
                                     <img src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?cs=srgb&dl=business-charts-commerce-265087.jpg&fm=jpg" alt="">
                                     <div class="card-content">
                                         <a href="meetup">
-                                        <h3 class="card-title">Additional Requirements</h3>
+                                        <h3 class="card-title">Networking groups in your field!</h3>
                                         </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quo alias, eius provident perferendis cupiditate delectus voluptatum autem libero distinctio, molestias!</p>
-                                    </div>
+                                        <p>Get out and rub shoulders with people in your industry! These are your
+                                            local technology networking meet-up events.
                                 </div>
                             </li>
                         </ul>
