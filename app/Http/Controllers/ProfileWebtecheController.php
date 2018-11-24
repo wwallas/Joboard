@@ -24,7 +24,7 @@ class ProfileWebtecheController extends Controller
         $user = User::find($id);
         // dd($user->profile->technology);
         $techs = $user->profile->technology;
-        
+
         $user->technologies()->attach($techid);
         return back();
 
@@ -43,7 +43,7 @@ class ProfileWebtecheController extends Controller
 
 
         // dd($user->Technology);
-        return view('profile.index',compose($user->Technology));
+        return view('profile.index', compact($user->Technology));
 
         // dd($followers);
         //return view('profile.index')->with('technos', $technos, $user->profile_webteches);

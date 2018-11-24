@@ -1,23 +1,17 @@
+    @extends('layout')
     <!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
         <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-
-            <title>Laravel</title>
-
-            <!-- Fonts -->
-            <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
     
-            <!-- Styles -->
             <style>
             .mb-60 {
         margin-bottom: 60px;
         align-content:center;
        
+    }
+    h4{
+        font-family:bold;
     }
     .services-inner {
         border: 2px solid #48c7ec;
@@ -34,10 +28,9 @@
     }
     .our-services-text {
         padding-right: 10px;
-    }
-    .our-services-text {
         overflow: hidden;
         padding: 28px 0 25px;
+        height:325px;
     }
     .our-services-text h4 {
         color: #222222;
@@ -79,31 +72,7 @@
             <div class="title">
                 <h1 class="text-center">Welcome to the Quest for you Perfect Job!</h1>
             </div>
-                <hr>
-            <h3 class="fav-title text-center">Your Favorites</h3>
-
-
-            <div class="favorites row ">
-            @isset($faves)
-            @foreach($faves as $fave)   
-
-                <div id="demo" class="card col-xl-4 col-lg-4 col-md-6 col-sm-3">
-                    <div class="card-body">
-                        @csrf
-                        <form action='deleteJob' method="POST">
-                        <button class="btn btn-xs btn-danger" type="submit">X</button>
-                        <input type="hidden" name="_method" value="DELETE">
-                        </form>
-                        <h5 class="card-title text-center">{{ $fave->title }}</h5>
-                        <p class="card-text">{{ $fave->company }}</p>
-                        <a href="{{ $fave->url }}" class="text-centercard-link" title="link">Apply</a>
-                    </div>
-                </div>
-                @endforeach
-                @endif
-            </div>
-     
-           
+        
 
 
             <div class="container">
@@ -124,12 +93,12 @@
                                         <div class="our-services-text">
                                             <form action="addJobs">
                                                 @csrf
-                                                <h3>{{ $job ->company }}
+                                                <h3>{{ $job ->company }}</a>
                                             <input type="hidden" name="company" value="{{ $job ->company }}"/>
                                                 <p>{{ $job ->locations }}</p>
-                                                <h4>{{ $job ->title }}</h4></a>
+                                                <h4>{{ $job ->title }}</h4>
                                             <input type="hidden" name="title" value="{{ $job ->title }}"/>
-                                                <p>{{ $job ->description }}</p>
+                                                <p>{{ substr(strip_tags($job ->description), 0, 250) }}</p>
                                                 <p>{{ $job ->salary }}</p>
                                             <input type="hidden" name="url" value="{{ $job->url }}"/>    
                                                 <button class="btn btn-xs btn-primary">add to favorites</button>
@@ -138,7 +107,7 @@
                                     </div>
                                 </div>
                             </div>
-                </a>
+             
                         
             @endforeach
             @endif             

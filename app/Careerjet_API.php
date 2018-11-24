@@ -198,7 +198,7 @@ class Careerjet_API extends Model {
     }
 
     $url .= '&user_ip=' . $ip;
-    //$url .= '&user_agent=' . urlencode($_SERVER['HTTP_USER_AGENT']);
+    $url .= '&user_agent=' . urlencode($_SERVER['HTTP_USER_AGENT']);
     
     // determine current page
     $current_page_url = '';
@@ -344,7 +344,7 @@ class Careerjet_API extends Model {
    */
   function search($args)
   {
-    
+    $args['user_ip'] = $_SERVER['REMOTE_ADDR'];
     $result =  $this->call('search' , $args);
     if ($result->type == 'ERROR') {
       trigger_error( $result->error );

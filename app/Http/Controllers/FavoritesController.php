@@ -10,14 +10,17 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 use App\Favorites;
 use DB;
+use App\User;
 
 
 
 class FavoritesController extends Controller
 {
     public function index(Request $request) {
-        $faves=Favorites::orderBy('created_at', 'desc')->paginate(3);
-        dd($faves);
+        $user = User::find(auth()->id());
+        $faves = $user->favorites()->latest()->paginate(10);
+        
+        return view('favorites', compact('user', 'faves'));
     }
 
 
@@ -39,8 +42,8 @@ class FavoritesController extends Controller
     
             $faves=Favorites::create($data);
        
-       
+            // dd($faves);
 
-        return redirect('/feed');
+        return redirect('favorites');
     }
 }
